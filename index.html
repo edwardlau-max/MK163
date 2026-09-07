@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MK163 Pool Dosing Guide (Rev 1.7)</title>
+<title>MK163 Pool Dosing Guide (Rev 1.8)</title>
 <style>
   :root{
     --ink:#1a2230; --muted:#5b6675; --line:#d3d9e2; --bg:#f5f7fa;
@@ -126,7 +126,7 @@
   <header>
     <h1>MK163 Pool — Chlorine &amp; pH Dosing Guide</h1>
     <p class="sub">Water test → find your FC reading → read the column for today. SC = Salt Chlorinator.</p>
-    <span class="rev">REV 1.7</span>
+    <span class="rev">REV 1.8</span>
   </header>
 
   <div class="how">
@@ -213,24 +213,24 @@
       <span><i class="sw" style="background:var(--d1)"></i> Mon–Thu / Mon–Fri</span>
       <span><i class="sw" style="background:var(--d2)"></i> Fri–Sun / Sat–Sun</span>
     </div>
-    Source: MK tab — MK163 (Rev 1.7). pH below 7.5 = no dosing. Confirm values against your master sheet before printing.
+    Source: MK tab — MK163 (Rev 1.8). pH below 7.5 = no dosing. Confirm values against your master sheet before printing.
   </footer>
 </div>
 
 <script>
   const after = [
-    ["0.0","1.4kg","2kg"],["0.2","1.2kg","1.8kg"],["0.4","1kg","1.8kg"],["0.6","1kg","1.8kg"],
-    ["0.8","1kg","1.6kg"],["1.0","800g","1.4kg"],["1.2","800g","1.4kg"],["1.4","800g","1.4kg"],
-    ["1.6","800g","1.4kg"],["1.8","800g","1.4kg"],["2.0","800g","1.2kg"],["2.2","600g","1kg"],
-    ["2.4","SC ON","800g"],["2.6","SC ON","600g"],["2.8","SC ON","400g"],["3.0","OFF SC","400g"]
+    ["0.0","1.4kg","1.4kg"],["0.2","1.4kg","1.4kg"],["0.4","1.2kg","1.4kg"],["0.6","1.2kg","1.2kg"],
+    ["0.8","1kg","1.2kg"],["1.0","800g","1.2kg"],["1.2","800g","1kg"],["1.4","800g","1kg"],
+    ["1.6","700g","800g"],["1.8","600g","800g"],["2.0","500g","800g"],["2.2","500g","800g"],
+    ["2.4","500g","600g"],["2.6","250g","300g"],["2.8","250g","300g"],["3.0","250g","300g"]
   ];
   const morn = [
-    ["0.0","SC ON","SC ON"],["0.2","SC ON","SC ON"],["0.4","SC ON","SC ON"],["0.6","SC ON","SC ON"],
-    ["0.8","SC ON","SC ON"],["1.0","SC ON","SC ON"],["1.2","SC ON","SC ON"],["1.4","SC ON","SC ON"],
-    ["1.6","SC ON","SC ON"],["1.8","SC ON","SC ON"],["2.0","SC ON","SC ON"],["2.2","OFF SC","OFF SC"],
+    ["0.0","OFF SC","OFF SC"],["0.2","OFF SC","OFF SC"],["0.4","OFF SC","OFF SC"],["0.6","OFF SC","OFF SC"],
+    ["0.8","OFF SC","OFF SC"],["1.0","OFF SC","OFF SC"],["1.2","OFF SC","OFF SC"],["1.4","OFF SC","OFF SC"],
+    ["1.6","OFF SC","OFF SC"],["1.8","OFF SC","OFF SC"],["2.0","OFF SC","OFF SC"],["2.2","OFF SC","OFF SC"],
     ["2.4","OFF SC","OFF SC"],["2.6","OFF SC","OFF SC"],["2.8","OFF SC","OFF SC"],["3.0","OFF SC","OFF SC"]
   ];
-  const ph = [["7.5","500g"],["7.8","1kg"],["8.2","2kg"]];
+  const ph = [["7.5","400g"],["7.8","800g"],["8.2","1.4kg"]];
 
   function fmt(v){
     if(/^\d.*(kg|g)$/.test(v)) return `<span class="dose">${v}</span>`;
