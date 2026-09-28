@@ -8,11 +8,10 @@
   :root{
     --ink:#1a2230; --muted:#5b6675; --line:#d3d9e2; --bg:#f5f7fa;
     --fc-bg:#22303f; --fc-ink:#ffffff;
-    --d1:#eef4ff; --d1hd:#2b62b8;   /* Mon-Thurs / Mon-Fri  (blue) */
-    --d2:#fff3e6; --d2hd:#c8781a;   /* Fri-Sun / Sat-Sun    (orange) */
-    --on2bg:#cdedd9; --on2:#12703f;  /* 2x SC ON */
-    --on1bg:#e4f5ea; --on1:#2b8a5b;  /* 1x SC ON */
-    --offbg:#fbe1da; --off:#b3341f;  /* All SC OFF */
+    --d1:#eef4ff; --d1hd:#2b62b8;   /* Mon-Thurs (blue) */
+    --d2:#fff3e6; --d2hd:#c8781a;   /* Fri-Sun (orange) */
+    --onbg:#e2f4e9; --on:#1a7f4b;   /* SC ON */
+    --offbg:#fbe1da; --off:#b3341f;  /* SC OFF */
     --ph:#fdeef4; --phhd:#b23a76;
     --warn:#b23b17; --warnbg:#fdeee7;
     --lv1bg:#e2f4e9; --lv1:#1a7f4b;
@@ -42,16 +41,17 @@
   section{padding:20px 26px 8px;}
   .band{display:flex;align-items:center;gap:10px;margin:0 0 12px;}
   .tag{font-size:12px;font-weight:800;letter-spacing:.6px;color:#fff;padding:5px 12px;border-radius:8px;text-transform:uppercase;}
-  .tag.m{background:var(--d1hd);}
   .tag.a{background:#12855a;}
+  .tag.m{background:var(--d1hd);}
   .tag.w{background:var(--warn);}
   .band h2{margin:0;font-size:17px;}
   .band .note{margin-left:auto;font-size:12.5px;color:var(--muted);font-weight:600;}
 
   .grids{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;}
   table{border-collapse:collapse;width:100%;font-size:15px;}
-  .wrap{flex:1;min-width:340px;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .wrap{flex:1;min-width:300px;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .wrap.ph{flex:none;width:220px;}
+  .wrap.narrow{flex:none;width:300px;}
   th,td{padding:9px 12px;text-align:center;border-bottom:1px solid #e7ebf1;}
   thead th{font-size:12.5px;font-weight:800;letter-spacing:.3px;padding-top:11px;padding-bottom:11px;}
   tbody tr:last-child td{border-bottom:none;}
@@ -66,15 +66,13 @@
   tbody tr:nth-child(even) td.c2{background:#ffe9d4;}
   td.dose{font-weight:800;font-size:15.5px;}
 
-  .pill{display:inline-block;min-width:78px;padding:3px 9px;border-radius:6px;font-weight:800;font-size:12.5px;letter-spacing:.2px;}
-  .on2{background:var(--on2bg);color:var(--on2);}
-  .on1{background:var(--on1bg);color:var(--on1);}
+  .pill{display:inline-block;min-width:70px;padding:3px 9px;border-radius:6px;font-weight:800;font-size:12.5px;letter-spacing:.2px;}
+  .on{background:var(--onbg);color:var(--on);}
   .off{background:var(--offbg);color:var(--off);}
 
   .ph thead th{background:var(--phhd);color:#fff;}
   .ph td.k{font-weight:800;background:#fbe7f0;}
 
-  /* poo procedure */
   .proc{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;}
   .proc .steps{flex:1;min-width:320px;background:var(--warnbg);border:1px solid #f2d3c6;border-radius:10px;padding:6px 6px 6px 4px;}
   .proc ol{margin:8px 14px 8px 34px;padding:0;}
@@ -108,7 +106,7 @@
     .band h2{font-size:15px;}
     .band .note{margin-left:0;flex-basis:100%;}
     .grids,.proc{gap:14px;}
-    .wrap,.wrap.ph,.proc .steps,.lv{min-width:0;width:100%;flex:1 1 100%;}
+    .wrap,.wrap.ph,.wrap.narrow,.proc .steps,.lv{min-width:0;width:100%;flex:1 1 100%;}
     th,td{padding:8px 6px;font-size:13.5px;}
     thead th{font-size:11.5px;}
     th.fc,td.fc{width:46px;font-size:14px;}
@@ -124,15 +122,15 @@
 <body>
 <div class="sheet">
   <header>
-    <h1>MK163 Pool — Chlorine &amp; pH Dosing Guide</h1>
-    <p class="sub">Water test → find your FC reading → read the column for today. SC = Salt Chlorinator.</p>
+    <h1>MK163 — Chlorine &amp; pH Dosing Guide</h1>
+    <p class="sub">Water test &#8594; find your FC reading &#8594; read the column for today. SC = Salt Chlorinator.</p>
     <span class="rev">REV 1.8</span>
   </header>
 
   <div class="how">
     <div class="step"><div class="num">1</div><div><b>Check the time</b><span>Morning 9am test, or after-class 5pm test — use the matching section.</span></div></div>
     <div class="step"><div class="num">2</div><div><b>Find the FC row</b><span>Match your measured FC (dark left column).</span></div></div>
-    <div class="step"><div class="num">3</div><div><b>Read today's column</b><span>A dose (e.g. 800g) = add chlorine. A green pill = switch chlorinator(s) on instead.</span></div></div>
+    <div class="step"><div class="num">3</div><div><b>Read today's column</b><span>Follow the row across to the coloured column for today.</span></div></div>
   </div>
 
   <!-- AFTER CLASS -->
@@ -162,13 +160,13 @@
   <section>
     <div class="band">
       <span class="tag m">Morning</span>
-      <h2>9am Water Test — Salt Chlorinator</h2>
-      <span class="note">Decision only · no chlorine dosing</span>
+      <h2>Morning 9am Water Test — Salt Chlorinator</h2>
+      <span class="note">Mon – Sun · decision only, no CL</span>
     </div>
     <div class="grids">
-      <div class="wrap">
+      <div class="wrap narrow">
         <table>
-          <thead><tr><th class="fc">FC</th><th class="c1">Mon – Fri</th><th class="c2">Sat – Sun</th></tr></thead>
+          <thead><tr><th class="fc">FC</th><th class="c1">Mon – Sun</th></tr></thead>
           <tbody id="morn"></tbody>
         </table>
       </div>
@@ -208,40 +206,42 @@
 
   <footer>
     <div class="legend">
-      <span><i class="sw" style="background:var(--on2bg)"></i> SC ON</span>
+      <span><i class="sw" style="background:var(--onbg)"></i> SC ON</span>
       <span><i class="sw" style="background:var(--offbg)"></i> SC OFF</span>
-      <span><i class="sw" style="background:var(--d1)"></i> Mon–Thu / Mon–Fri</span>
-      <span><i class="sw" style="background:var(--d2)"></i> Fri–Sun / Sat–Sun</span>
+      <span><i class="sw" style="background:var(--d1)"></i> Mon–Thurs</span>
+      <span><i class="sw" style="background:var(--d2)"></i> Fri–Sun</span>
     </div>
-    Source: MK tab — MK163 (Rev 1.8). pH below 7.5 = no dosing. Confirm values against your master sheet before printing.
+    Source: MK163 (Rev 1.8), master dosing sheet. After-class CL dosing = Salt Chlorinator OFF. Confirm values against your master sheet before printing.
   </footer>
 </div>
 
 <script>
   const after = [
-    ["0.0","1.4kg","1.4kg"],["0.2","1.4kg","1.4kg"],["0.4","1.2kg","1.4kg"],["0.6","1.2kg","1.2kg"],
-    ["0.8","1kg","1.2kg"],["1.0","800g","1.2kg"],["1.2","800g","1kg"],["1.4","800g","1kg"],
-    ["1.6","700g","800g"],["1.8","600g","800g"],["2.0","500g","800g"],["2.2","500g","800g"],
-    ["2.4","500g","600g"],["2.6","250g","300g"],["2.8","250g","300g"],["3.0","250g","300g"]
+    ["0","1.4kg","1.4kg"],["0.2","1.4kg","1.4kg"],["0.4","1.2kg","1.4kg"],
+    ["0.6","1.2kg","1.2kg"],["0.8","1kg","1.2kg"],["1","800g","1.2kg"],
+    ["1.2","800g","1kg"],["1.4","800g","1kg"],["1.6","700g","800g"],
+    ["1.8","600g","800g"],["2.0","500g","800g"],["2.2","500g","800g"],
+    ["2.4","500g","600g"],["2.6","250g","300g"],["2.8","250g","300g"],
+    ["3.0","250g","300g"]
   ];
   const morn = [
-    ["0.0","OFF SC","OFF SC"],["0.2","OFF SC","OFF SC"],["0.4","OFF SC","OFF SC"],["0.6","OFF SC","OFF SC"],
-    ["0.8","OFF SC","OFF SC"],["1.0","OFF SC","OFF SC"],["1.2","OFF SC","OFF SC"],["1.4","OFF SC","OFF SC"],
-    ["1.6","OFF SC","OFF SC"],["1.8","OFF SC","OFF SC"],["2.0","OFF SC","OFF SC"],["2.2","OFF SC","OFF SC"],
-    ["2.4","OFF SC","OFF SC"],["2.6","OFF SC","OFF SC"],["2.8","OFF SC","OFF SC"],["3.0","OFF SC","OFF SC"]
+    ["0","On SC"],["0.2","On SC"],["0.4","On SC"],["0.6","On SC"],
+    ["0.8","On SC"],["1","On SC"],["1.2","On SC"],["1.4","On SC"],
+    ["1.6","On SC"],["1.8","On SC"],["2.0","OFF SC"],["2.2","OFF SC"],
+    ["2.4","OFF SC"],["2.6","OFF SC"],["2.8","OFF SC"],["3.0","OFF SC"]
   ];
   const ph = [["7.5","400g"],["7.8","800g"],["8.2","1.4kg"]];
 
   function fmt(v){
     if(/^\d.*(kg|g)$/.test(v)) return `<span class="dose">${v}</span>`;
     if(/off/i.test(v)) return '<span class="pill off">SC OFF</span>';
-    if(/on/i.test(v)) return '<span class="pill on2">SC ON</span>';
+    if(/on/i.test(v)) return '<span class="pill on">SC ON</span>';
     return v;
   }
   document.getElementById('after').innerHTML = after.map(r=>
     `<tr><td class="fc">${r[0]}</td><td class="c1">${fmt(r[1])}</td><td class="c2">${fmt(r[2])}</td></tr>`).join('');
   document.getElementById('morn').innerHTML = morn.map(r=>
-    `<tr><td class="fc">${r[0]}</td><td class="c1">${fmt(r[1])}</td><td class="c2">${fmt(r[2])}</td></tr>`).join('');
+    `<tr><td class="fc">${r[0]}</td><td class="c1">${fmt(r[1])}</td></tr>`).join('');
   document.getElementById('ph').innerHTML = ph.map(r=>
     `<tr><td class="k">${r[0]}</td><td class="dose">${r[1]}</td></tr>`).join('');
 </script>
