@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MK163 Pool Dosing Guide (Rev 1.8)</title>
+<title>MK163 Pool Dosing Guide (Rev 1.9)</title>
 <style>
   :root{
     --ink:#1a2230; --muted:#5b6675; --line:#d3d9e2; --bg:#f5f7fa;
@@ -124,7 +124,7 @@
   <header>
     <h1>MK163 — Chlorine &amp; pH Dosing Guide</h1>
     <p class="sub">Water test &#8594; find your FC reading &#8594; read the column for today. SC = Salt Chlorinator.</p>
-    <span class="rev">REV 1.8</span>
+    <span class="rev">REV 1.9</span>
   </header>
 
   <div class="how">
@@ -211,7 +211,7 @@
       <span><i class="sw" style="background:var(--d1)"></i> Mon–Thurs</span>
       <span><i class="sw" style="background:var(--d2)"></i> Fri–Sun</span>
     </div>
-    Source: MK163 (Rev 1.8), master dosing sheet. After-class CL dosing = Salt Chlorinator OFF. Confirm values against your master sheet before printing.
+    Source: MK163 (Rev 1.9), master dosing sheet. After-class CL dosing = Salt Chlorinator OFF. Confirm values against your master sheet before printing.
   </footer>
 </div>
 
@@ -230,7 +230,7 @@
     ["1.6","On SC"],["1.8","On SC"],["2.0","OFF SC"],["2.2","OFF SC"],
     ["2.4","OFF SC"],["2.6","OFF SC"],["2.8","OFF SC"],["3.0","OFF SC"]
   ];
-  const ph = [["7.5","400g"],["7.8","800g"],["8.2","1.4kg"]];
+  const ph = [["7.5","800g"],["7.8","1.5kg"],["8.2","3kg"]];
 
   function fmt(v){
     if(/^\d.*(kg|g)$/.test(v)) return `<span class="dose">${v}</span>`;
